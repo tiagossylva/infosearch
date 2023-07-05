@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <nav class="navbar col-12 m-auto position-fixed navbar-expand-lg navbar-dark " style="z-index: 999;background-color: #110706;">
+      <div class="container-fluid col-11 m-auto">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">InfoSearch</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/consulta">Consulta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sobre">Sobre</a>
+                </li>
+                </ul>
+            </div>
+      </div>
+    </nav>
+    <br><br>
+    <div id="carouselExampleIndicators" class="carousel slide" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://img.freepik.com/fotos-gratis/poluicao-por-oleo-na-agua-criada-com-a-tecnologia-generative-ai_185193-110077.jpg?w=740&t=st=1687151508~exp=1687152108~hmac=145e185e6c8d3d50c2a2fdb5958fecbcf56d64732be357060c6cb7d7b5b8d598 " width="auto" height="400" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img.freepik.com/fotos-gratis/diferentes-pistolas-de-combustivel-em-algum-lugar-na-cidade-de-amsterda_613910-8508.jpg?w=740&t=st=1688149594~exp=1688150194~hmac=70f16354fc9a0d5ff37f370d8be6d7122e374a37f5f90bfacc05799c440cc0e4" width="auto" height="400" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img.freepik.com/fotos-premium/vista-aerea-da-pilha-de-chamas-de-gas-das-refinarias-de-petroleo-fundo-do-por-do-sol-torre-de-chamas_77829-10381.jpg?w=996" width="auto" height="400" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br><br>
+
+            <div class="info col-12 m-auto text-center">
+                <h2>Sobre a Infosearch</h2><br>
+                <p class="col-11 m-auto text-center">
+                    Bem-vindo ao nosso site de Preço Histórico de Combustível no Brasil.
+                    Aqui você pode pesquisar e visualizar os dados dos preços médios, mínimos
+                    e máximos dos combustíveis em diferentes estados e anos específicos.
+                </p>
+                <p class="col-11 m-auto text-center">
+                    Utilize o formulário à direita para fazer uma pesquisa. Selecione o ano,
+                    o tipo de combustível e o estado desejado e clique em "Pesquisar" para obter
+                    os dados correspondentes.
+                </p>
+            </div>
+    <br><br>
+    <hr>
+           <div class="caracteristicas col-12 m-auto ">
+               <ul class="d-flex justify-content-center col-11 m-auto" >
+                   <li class="objetivo" style="list-style-type:none;">
+                       <img src="https://cdn1.iconfinder.com/data/icons/business-456/500/success-512.png" height="128" alt="">
+                       <h3>Objetivo</h3>
+                       <p class="a">Proporcionar uma fonte centralizada de informações confiáveis.</p>
+                   </li>
+
+                   <li class="caracteristicas" style="list-style-type:none;">
+                       <img src="https://cdn1.iconfinder.com/data/icons/business-456/500/management-512.png" width="128" height="128" alt="">
+                       <h3>Característica</h3>
+                       <p class="b">Mostrar gráficos de acordo com a pesquisa realizada pelo usuário.</p>
+                   </li>
+
+                   <li class="diferencial" style="list-style-type:none;">
+                       <img src="https://cdn4.iconfinder.com/data/icons/sustainable-competitive-advantage-1/64/differentiation-advantage-winner-unique-reward-512.png" width="128" height="128" alt="">
+                       <h3 >Diferencial</h3>
+
+                       <p class="c">Gerar conhecimento a partir de dados abertos de forma fácil.</p>
+                   </li>
+               </ul>
+           </div>
+    <hr>
+    <br><br>
+    <div class="text-center col-12 m-auto">
+        <a class="btn btn-success" href="consulta" role="button">Consultar</a>
+    </div>
+        <br><br><br>
+
+    <footer class="page-footer p-3 col-12 m-auto" style="background-color: #110706;">
+        <div class="text-center">
+            <p style="color: white">&copy; 2023 Infosearch. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>

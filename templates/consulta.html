@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+    var estadoElement = " {{estado}}";
+
+
+      function drawVisualization() {
+        // Obter os dados do Flask
+        var dados_json = JSON.parse('{{ dados | safe }}');
+        var dados_json2 = JSON.parse('{{ dados2 | safe }}');
+        var dados_json3 = JSON.parse('{{ dados3 | safe }}');
+        var dados_json4 = JSON.parse('{{ dados4 | safe }}');
+        var dados_json5 = JSON.parse('{{ dados5 | safe }}');
+
+        // Converter os dados para o formato esperado pelo Google Charts
+
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('string', 'Ano');       
+        data1.addColumn('number', 'Minimo');
+        data1.addColumn('number', 'Media');
+        data1.addColumn('number', 'Maximo');
+
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Ano');       
+        data2.addColumn('number', 'Minimo');
+        data2.addColumn('number', 'Media');
+        data2.addColumn('number', 'Maximo');
+
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('string', 'Ano');       
+        data3.addColumn('number', 'Minimo');
+        data3.addColumn('number', 'Media');
+        data3.addColumn('number', 'Maximo');
+
+        var data4 = new google.visualization.DataTable();
+        data4.addColumn('string', 'Ano');       
+        data4.addColumn('number', 'Minimo');
+        data4.addColumn('number', 'Media');
+        data4.addColumn('number', 'Maximo');
+
+        var data5 = new google.visualization.DataTable();
+        data5.addColumn('string', 'Ano');       
+        data5.addColumn('number', 'Minimo');
+        data5.addColumn('number', 'Media');
+        data5.addColumn('number', 'Maximo');
+        
+        // Adicionar os dados ao objeto de dados
+
+        for (var i = 0; i < dados_json.length; i++) {
+          data1.addRow([dados_json[i][0], dados_json[i][1], dados_json[i][2], dados_json[i][3]]);
+        }
+
+        for (var i = 0; i < dados_json2.length; i++) {
+          data2.addRow([dados_json2[i][0], dados_json2[i][1], dados_json2[i][2], dados_json2[i][3]]);
+        }
+
+        for (var i = 0; i < dados_json3.length; i++) {
+          data3.addRow([dados_json3[i][0], dados_json3[i][1], dados_json3[i][2], dados_json3[i][3]]);
+        }
+
+        for (var i = 0; i < dados_json4.length; i++) {
+          data4.addRow([dados_json4[i][0], dados_json4[i][1], dados_json4[i][2], dados_json4[i][3]]);
+        }
+
+        for (var i = 0; i < dados_json5.length; i++) {
+          data5.addRow([dados_json5[i][0], dados_json5[i][1], dados_json5[i][2], dados_json5[i][3]]);
+        }
+
+        var options1 = {
+          title: 'Histórico de valores Mínimo, Médio e Máximo por Ano em'+ estadoElement,
+          hAxis: { title: 'Ano' },
+          vAxis: { title: 'Valores' },
+          seriesType: 'bars',
+          series: { 3: { type: 'line' } }
+
+
+        };
+
+        var options2 = {
+          title: 'Histórico de valores Mínimo, Médio e Máximo por Ano em' + estadoElement,
+          hAxis: { title: 'Ano' },
+          vAxis: { title: 'Valores' },
+          seriesType: 'bars',
+          series: { 3: { type: 'line' } }
+        };
+
+        var options3 = {
+          title: 'Histórico de valores Mínimo, Médio e Máximo por Ano em'+ estadoElement,
+          hAxis: { title: 'Ano' },
+          vAxis: { title: 'Valores' },
+          seriesType: 'bars',
+          series: { 3: { type: 'line' } }
+        };
+
+        var options4 = {
+          title: 'Histórico de valores Mínimo, Médio e Máximo por Ano em' + estadoElement,
+          hAxis: { title: 'Ano' },
+          vAxis: { title: 'Valores' },
+          seriesType: 'bars',
+          series: { 3: { type: 'line' } }
+        };
+
+        var options5 = {
+            title: 'Valores Mínimo, Médio e Máximo por Ano em' + estadoElement,
+            hAxis: { title: 'Ano' },
+            vAxis: { title: 'Valores' },
+            seriesType: 'bars',
+            series: { 3: { type: 'line' } }
+};
+
+
+
+        // Desenha cada gráfico
+        var chart1 = new google.visualization.ComboChart(document.getElementById('chart_um'));
+        chart1.draw(data1, options1);
+
+        var chart2 = new google.visualization.ComboChart(document.getElementById('chart_dois'));
+        chart2.draw(data2, options2);
+
+        var chart3 = new google.visualization.ComboChart(document.getElementById('chart_tres'));
+        chart3.draw(data3, options3);
+
+        var chart4 = new google.visualization.ComboChart(document.getElementById('chart_quatro'));
+        chart4.draw(data4, options4);
+
+        var chart5 = new google.visualization.ComboChart(document.getElementById('chart_cinco'));
+        chart5.draw(data5, options5);
+      }
+    </script>
+</head>
+<body>
+    <nav class="navbar col-12 m-auto position-fixed navbar-expand-lg navbar-dark " style="z-index: 999;background-color: #110706;">
+      <div class="container-fluid col-11 m-auto">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">InfoSearch</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/consulta">Consulta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sobre">Sobre</a>
+                </li>
+                </ul>
+            </div>
+      </div>
+    </nav>
+    <br><br>
+    <br><br>
+
+        <div class="info col-12 m-auto text-center" >
+            <h2>Faça sua Consulta</h2>
+            <form action="/search" method="POST">
+
+                <label for="estado"><h6>Estado</h6></label>
+                <select id="estado" name="estado" required>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="PR">Paraná</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="TO">Tocantins</option>
+                    
+                </select>
+                <label for="combustivel"><h6>Combustível</h6></label>
+                <select id="combustivel" name="combustivel" required>
+                    <option value="diesel">Diesel</option>
+                    <option value="diesels10">Diesel S10</option>
+                    <option value="etanol">Etanol</option>
+                    <option value="gasolina">Gasolina</option>
+                    <option value="gnv">Gnv</option>
+
+                </select>
+
+                <br><br>
+                <input class="btn btn-success" type="submit" value="Consultar">
+
+            </form>
+
+            <br>
+        </div>
+
+        {% if opcao == 'valor1' %}
+            <div id="chart_um" style="width: auto; height: 500px; display: flex;"></div>
+        {% elif opcao == 'valor2' %}
+            <div id="chart_dois" style="width: auto; height: 500px; display: flex;"></div>
+        {% elif opcao == 'valor3' %}
+            <div id="chart_tres" style="width: auto; height: 500px; display: flex;"></div>
+        {% elif opcao == 'valor4' %}
+            <div id="chart_quatro" style="width: auto; height: 500px; display: flex;"></div>
+        {% elif opcao == 'valor5' %}
+            <div id="chart_cinco" style="width: auto; height: 500px; display: flex;"></div>    
+        {% elif opcao == "nenhum valor" %}
+            <p class=" col-11 m-auto text-center" style="color:red">Pesquisa não consta nos dados, tente novamente!</p>
+
+        {% endif %}
+        
+        <div id="chart_um" style="width: auto; height: 500px; display: none;"></div>
+        <div id="chart_dois" style="width: auto; height: 500px; display: none;"></div>
+        <div id="chart_tres" style="width: auto; height: 500px; display: none;"></div>
+        <div id="chart_quatro" style="width: auto; height: 500px; display: none;"></div>
+        <div id="chart_cinco" style="width: auto; height: 500px; display: none;"></div>
+
+        <br><br><br>
+
+     <footer class="page-footer p-3 fixed-bottom col-12 m-auto" style="background-color: #110706;">
+        <div class="text-center">
+            <p style="color: white">&copy; 2023 Infosearch. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>

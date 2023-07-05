@@ -1,0 +1,31 @@
+body {
+    background:#f1ddc0;
+
+}
+
+div.caracteristicas {
+
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.dev1,.dev2,.dev3,.dev4{
+padding-left:2rem;
+padding-right:2rem;
+
+}
+.dev5,.dev6,.dev7{
+padding-left:3rem;
+padding-right:3rem;
+}
+
+.prof1,.prof2{
+padding-left:5rem;
+padding-right:5rem;
+
+}
+.conteudo-observacao {
+  display: none;
+}
